@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+  STARTER TEMPLATE FOR AN INTERACTIVE WORK SAMPLE
+  1. Copy this whole folder (_template) and rename the copy, for example:
+       assets/solutions/floorplan/
+  2. Edit index.html in the copy. Keep everything it needs (images, scripts,
+     styles) inside the same folder so it works anywhere.
+  3. Add an entry to js/solutions-data.js with:
+       format: "embed",
+       link: "assets/solutions/floorplan/index.html"
+  Tips: keep it self-contained, make it work on a phone-sized screen, and
+  avoid anything that needs a login.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive sample</title>
+  <style>
+    body { margin: 0; padding: 1.5rem; font-family: system-ui, sans-serif; color: #111315; }
+    button { padding: .6rem 1rem; background: #1B5E49; color: #fff; border: 0; font: inherit; cursor: pointer; }
+    #out { margin-top: 1rem; color: #5A626A; }
+  </style>
+</head>
+<body>
+  <h1>Your interactive sample</h1>
+  <p>Replace this with your tool, calculator, visualization, or demo.</p>
+  <button id="go" type="button">Try it</button>
+  <p id="out" role="status"></p>
+  <script>
+    var n = 0;
+    document.getElementById("go").addEventListener("click", function () {
+      n += 1;
+      document.getElementById("out").textContent = "Clicked " + n + (n === 1 ? " time" : " times") + ".";
+    });
+  </script>
+</body>
+</html>
