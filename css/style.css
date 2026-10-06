@@ -171,7 +171,6 @@ a { color: var(--accent); text-underline-offset: 3px; }
   letter-spacing: -.02em;
   overflow-wrap: anywhere;
 }
-.page-intro .contact-alt { margin-top: 1rem; font-size: 1rem; }
 
 /* ---------- work samples (data engine) ---------- */
 

@@ -10,6 +10,7 @@ contact.html        Contact
 css/style.css       All styling and colors
 js/solutions-data.js   YOUR WORK SAMPLES LIVE HERE (edit this most)
 js/app.js           The engine that draws the samples (rarely edit)
+js/site.js          Keeps the footer year current (no need to edit)
 assets/tGYLogo.png  Logo
 assets/solutions/   Put sample files here (images, PDFs, videos, tools)
 assets/solutions/_template/   Starter for an interactive sample
@@ -83,5 +84,4 @@ sample, the page goes back to showing "Examples of our work will be shared here 
   upload anything confidential.
 - **Check your change:** open the live site after each commit. You can also
   preview locally by double-clicking `index.html` before you upload.
-- **Footer year:** the copyright year in each page's footer is plain text.
-  Update it in `index.html`, `solutions.html`, and `contact.html` each January.
+- **Footer year:** updates itself each year (handled by `js/site.js`).
