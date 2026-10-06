@@ -5,8 +5,8 @@ database. Whatever is in this folder is the website.
 
 ```
 index.html          Home
-solutions.html      Solutions + work samples
-contact.html        Contact + printable capability statement
+solutions.html      Solutions + work samples (shows "coming soon" until you add some)
+contact.html        Contact
 css/style.css       All styling and colors
 js/solutions-data.js   YOUR WORK SAMPLES LIVE HERE (edit this most)
 js/app.js           The engine that draws the samples (rarely edit)
@@ -52,6 +52,8 @@ Visitors see the new version after GitHub finishes publishing.
 2. **Add an entry** to `js/solutions-data.js`: open the file, click the pencil,
    copy one of the blocks, paste it after the last one, and edit the values.
    The file's top comment lists every field and shows ready-made examples.
+   Categories are optional and can be any label; filter buttons appear
+   automatically once two or more different categories are in use.
 3. Click **Commit changes**.
 
 How each format is added:
@@ -67,7 +69,8 @@ How each format is added:
 
 ### Remove a work sample
 Delete its block from `js/solutions-data.js` and commit. If it was the last one
-in a category, that filter button disappears on its own.
+in a category, that filter button disappears on its own. If you remove every
+sample, the page goes back to showing "Examples of our work will be shared here soon."
 
 ### Things to watch
 - **Commas and quotes matter** in `solutions-data.js`. Each block ends with a
@@ -80,6 +83,5 @@ in a category, that filter button disappears on its own.
   upload anything confidential.
 - **Check your change:** open the live site after each commit. You can also
   preview locally by double-clicking `index.html` before you upload.
-- The Print / Save as PDF button on the Contact page produces the one-page
-  capability statement. If you change the text of the capability statement,
-  check that it still prints on one page.
+- **Footer year:** the copyright year in each page's footer is plain text.
+  Update it in `index.html`, `solutions.html`, and `contact.html` each January.

@@ -1,4 +1,4 @@
-/* THE GRAY YARD LTD. CO. - references filtering and card rendering
+/* THE GRAY YARD - work sample filtering and card rendering
    Runs on solutions.html only; other pages skip it harmlessly. */
 
 (function () {
@@ -6,19 +6,9 @@
 
   var filtersEl = document.getElementById("filters");
   var gridEl = document.getElementById("solutions-grid");
-  var statusEl = document.getElementById("results-status");
   if (!filtersEl || !gridEl) return;
 
-  // Display order for filters. A category only appears once at least
-  // one entry in SOLUTIONS_DATA uses it.
-  var CATEGORIES = [
-    "Systems & Audits",
-    "Workflows & Portals",
-    "Enablement & AI",
-    "Digital Media & Assets",
-    "Strategic Sourcing"
-  ];
-  var ALL = "All references";
+  var ALL = "All";
 
   // SOLUTIONS_DATA is a const in solutions-data.js: visible as a global
   // binding, but not a property of window.
@@ -35,13 +25,10 @@
     return node;
   }
 
-  function countFor(category) {
-    if (category === ALL) return data.length;
-    return data.filter(function (d) { return d.category === category; }).length;
-  }
-
+  // Categories come from the data itself, in the order they first appear.
+  // An entry without a category simply shows under "All".
   function visibleCategories() {
-    var known = CATEGORIES.filter(function (c) { return countFor(c) > 0; });
+    var known = [];
     data.forEach(function (d) {
       if (d.category && known.indexOf(d.category) === -1) known.push(d.category);
     });
@@ -60,7 +47,6 @@
       var btn = el("button", "filter", name);
       btn.type = "button";
       btn.setAttribute("aria-pressed", String(name === active));
-      btn.appendChild(el("span", "count", String(countFor(name))));
       btn.addEventListener("click", function () {
         active = name;
         renderFilters();
@@ -83,19 +69,10 @@
 
     var body = el("div", "card-body");
 
-    var top = el("div", "card-top");
-    top.appendChild(el("span", "ref-id", item.id || ""));
-    top.appendChild(el("span", "pill", item.category || ""));
-    body.appendChild(top);
+    if (item.category) body.appendChild(el("span", "pill", item.category));
 
     body.appendChild(el("h3", null, item.title || ""));
-    body.appendChild(el("p", null, item.summary || ""));
-
-    if (Array.isArray(item.tags) && item.tags.length) {
-      var tags = el("ul", "tags");
-      item.tags.forEach(function (t) { tags.appendChild(el("li", null, t)); });
-      body.appendChild(tags);
-    }
+    if (item.summary) body.appendChild(el("p", null, item.summary));
 
     if (item.link) {
       var label = item.linkText || "View details";
@@ -145,7 +122,7 @@
       return;
     }
     viewerBody.textContent = "";
-    viewerTitle.textContent = (item.id ? item.id + " · " : "") + (item.title || "");
+    viewerTitle.textContent = item.title || "";
     viewerOpen.href = item.link;
 
     var node;
@@ -162,7 +139,7 @@
       // Interactive pages, hosted tools, and YouTube/Vimeo videos.
       node = el("iframe", "viewer-frame");
       node.src = toEmbedUrl(item.link);
-      node.title = item.title || "Reference";
+      node.title = item.title || "Work sample";
       node.allow = "fullscreen; autoplay; clipboard-write";
       node.setAttribute("allowfullscreen", "");
       node.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms allow-popups allow-downloads");
@@ -186,20 +163,9 @@
       : data.filter(function (d) { return d.category === active; });
 
     if (!items.length) {
-      gridEl.appendChild(el(
-        "p", "empty",
-        data.length
-          ? "No references in this category yet."
-          : "No references published yet. Add entries in js/solutions-data.js."
-      ));
+      gridEl.appendChild(el("p", "empty", "Examples of our work will be shared here soon."));
     } else {
       items.forEach(function (item) { gridEl.appendChild(buildCard(item)); });
-    }
-
-    if (statusEl) {
-      statusEl.textContent = items.length + " of " + data.length +
-        (data.length === 1 ? " reference" : " references") +
-        (active === ALL ? "" : " in " + active);
     }
   }
 

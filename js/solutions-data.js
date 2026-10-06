@@ -1,23 +1,23 @@
 /*
-  THE GRAY YARD LTD. CO. - SOLUTIONS DATA
+  THE GRAY YARD - WORK SAMPLES
   ----------------------------------------------------------
-  To add a work sample: copy one block below, paste it at the end of
-  the array (add a comma after the previous block), and edit it.
-  To remove one: delete its block. Nothing else needs editing.
+  To add a work sample: copy one of the examples below, paste it inside
+  the [ ] brackets at the bottom, and edit it. Put a comma between
+  blocks. To remove one: delete its block. Nothing else needs editing.
+
+  While the list is empty, the Solutions page shows
+  "Examples of our work will be shared here soon."
 
   FIELDS
-    id        Label shown on the card (REF-04, REF-05, ...)
     title     Card heading
-    category  Filter name. Use one of: "Systems & Audits",
-              "Workflows & Portals", "Enablement & AI",
-              "Digital Media & Assets", "Strategic Sourcing"
-    summary   One or two sentences
-    image     "" for a text-only card, or "assets/solutions/photo.jpg"
-              for a preview thumbnail
+    summary   One or two sentences (optional)
+    category  Optional. Any short label you like. Once two or more
+              different categories exist, filter buttons appear on
+              their own. Leave it out to skip filtering entirely.
+    image     Optional preview thumbnail, e.g. "assets/solutions/photo.jpg"
     format    How the sample opens (see below). Leave out for "link".
     link      Where the sample lives (a file path or web address)
     linkText  The words on the card's link
-    tags      Short skill or technology tags
 
   FORMATS  (set with  format: "..." )
     "link"    Default. Opens the link in the same tab, or a new tab for
@@ -34,62 +34,22 @@
               or Vimeo address. Plays in the pop-up window.
     "image"   Shows a large version of the image in the pop-up window.
 
-  Anything that cannot be shown in a pop-up still works with the
-  default "link" format.
-
-  EXAMPLES (copy, uncomment, edit)
+  EXAMPLES (copy, edit, paste inside the brackets below)
   {
-    id: "REF-04",
     title: "Floor Plan Explorer",
-    category: "Systems & Audits",
-    summary: "Click through a multi-site floor plan and inspect equipment.",
+    summary: "Click through a multi-site floor plan.",
     image: "assets/solutions/floorplan-preview.jpg",
     format: "embed",
     link: "assets/solutions/floorplan/index.html",
-    linkText: "Try it →",
-    tags: ["Interactive", "Spatial Mapping"]
+    linkText: "Try it →"
   },
   {
-    id: "REF-05",
-    title: "Audit Summary Report",
-    category: "Systems & Audits",
-    summary: "Sample executive audit deliverable.",
-    image: "",
+    title: "Project Summary",
+    summary: "A sample final report.",
     format: "pdf",
-    link: "assets/solutions/audit-summary.pdf",
-    linkText: "Open PDF →",
-    tags: ["Report"]
-  },
+    link: "assets/solutions/summary.pdf",
+    linkText: "Open PDF →"
+  }
 */
 const SOLUTIONS_DATA = [
-  {
-    id: "REF-01",
-    title: "Enterprise M365 & AI Enablement Framework",
-    category: "Enablement & AI",
-    summary: "Structured adult-learning lab architecture, meta-prompting playbooks, and facilitator guides designed for rapid workforce technology adoption.",
-    image: "",
-    link: "contact.html#capability",
-    linkText: "Review Architecture →",
-    tags: ["AI Adoption", "M365", "Instructional Design"]
-  },
-  {
-    id: "REF-02",
-    title: "Interactive Spatial Mapping & Technical Audit System",
-    category: "Systems & Audits",
-    summary: "16:9 vector schematics, hardware inventory tracking structures, and interactive 2D/3D floor plan visualization for multi-site assessments.",
-    image: "",
-    link: "contact.html#capability",
-    linkText: "Explore Specification →",
-    tags: ["Spatial Mapping", "Three.js", "Systems Audit"]
-  },
-  {
-    id: "REF-03",
-    title: "Automated Portal & Schedule Orchestration",
-    category: "Workflows & Portals",
-    summary: "End-to-end SharePoint list architecture integrated with Power Automate flows for automated stakeholder communications and scheduling.",
-    image: "",
-    link: "contact.html#capability",
-    linkText: "View Workflow Spec →",
-    tags: ["SharePoint", "Power Automate", "Web Architecture"]
-  }
 ];
